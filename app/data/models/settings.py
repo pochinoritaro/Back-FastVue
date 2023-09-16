@@ -1,13 +1,19 @@
+from os import getenv
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
-DATABASE = 'postgresql'
-USER = 'postgres'
-PASSWORD = 'password'
-HOST = 'postgresql'
-PORT = '5432'
-DB_NAME = 'fast_vue'
+load_dotenv("./data/env/.env")
+
+print(type(getenv("PORT")))
+DATABASE = getenv("DATABASE")
+USER = getenv("USER")
+PASSWORD = getenv("PASSWORD")
+HOST = getenv("HOST")
+PORT = getenv("PORT")
+DB_NAME = getenv("DB_NAME")
 
 CONNECT_STR = '{}://{}:{}@{}:{}/{}'.format(DATABASE, USER, PASSWORD, HOST, PORT, DB_NAME)
 
