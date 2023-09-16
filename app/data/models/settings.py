@@ -7,7 +7,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 load_dotenv("./data/env/.env")
 
-print(type(getenv("PORT")))
 DATABASE = getenv("DATABASE")
 USER = getenv("USER")
 PASSWORD = getenv("PASSWORD")
